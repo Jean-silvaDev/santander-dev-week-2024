@@ -1,6 +1,8 @@
 package me.dio.controller;
 
 import java.net.URI;
+import java.util.List;
+
 import me.dio.domain.model.User;
 import me.dio.service.UserService;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +23,11 @@ public class UserController {
     public ResponseEntity<User> findById(@PathVariable("id") Long id) {
        var user = userService.findById(id);
        return ResponseEntity.ok(user);
+    }
+    
+    @GetMapping
+    public ResponseEntity<List<User>> findAll(){
+    	return ResponseEntity.ok(this.userService.findAll());
     }
 	
 	@PostMapping

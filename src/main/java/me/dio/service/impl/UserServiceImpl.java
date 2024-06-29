@@ -4,6 +4,7 @@ import me.dio.domain.model.User;
 import me.dio.domain.repository.UserRepository;
 import me.dio.service.UserService;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.springframework.stereotype.Service;
@@ -29,4 +30,9 @@ public class UserServiceImpl implements UserService {
         }
         return userRepository.save(userToCreate);
     }
+
+	@Override
+	public List<User> findAll() {
+		return this.userRepository.findAll();
+	}
 }
